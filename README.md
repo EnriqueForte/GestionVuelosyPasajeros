@@ -1,4 +1,6 @@
 A continuación se muestran capturas de las ventanas emergentes del menú principal de la App:
+@author Enrique Forte
+
 ![PantallaInicio](https://github.com/user-attachments/assets/a09c21b1-bc76-4236-8d1f-43946e51b541)
 
 
