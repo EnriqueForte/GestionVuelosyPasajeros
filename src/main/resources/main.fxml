@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="15.0" alignment="CENTER" prefWidth="600" prefHeight="400" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.vuelos.main.MainController">
+   <padding>
+      <Insets top="20" right="20" bottom="20" left="20"/>
+   </padding>
+   
+   <!-- Título de la Aplicación -->
+   <Label text="Gestión de Vuelos y Pasajeros" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+   
+   <!-- Botones principales -->   
+   <Button text="Insertar Vuelo" onAction="#handleInsertarVuelo" prefWidth="200"/>
+   <Button text="Insertar Aerolínea" onAction="#handleInsertarAerolinea" prefWidth="200"/>
+   <Button text="Insertar Pasajero" onAction="#handleInsertarPasajero" prefWidth="200"/>
+   <Button text="Insertar Viaje" fx:id="btnInsertarViaje" onAction="#handleAbrirInsertarViaje" prefWidth="200"/>
+   <Button text="Listar Pasajeros" onAction="#handleListarPasajeros" prefWidth="200"/>
+   <Button text="Listar Vuelos" onAction="#handleListarVuelos" prefWidth="200" />
+   <Button text="Salir" onAction="#handleExit" prefWidth="200"/>
+</VBox>

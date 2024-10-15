@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.vuelos.main.InsertarVueloController" spacing="10" alignment="CENTER">
+    <children>
+        <Label text="Insertar Nuevo Vuelo" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+        <GridPane hgap="10" vgap="10">
+            <children>
+                <!-- Campos para ingresar los datos del vuelo -->
+                <Label text="Aerolínea:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="comboAerolinea" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                <Label text="Código de Vuelo:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtCodigoVuelo" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                <Label text="País de Origen:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="comboPaisOrigen" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                <Label text="Aeropuerto de Origen:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="comboAeropuertoOrigen" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                <Label text="País de Destino:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="comboPaisDestino" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+                <Label text="Aeropuerto de Destino:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="comboAeropuertoDestino" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+                <Label text="Fecha de Vuelo:" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+                <DatePicker fx:id="dateFechaVuelo" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+
+                <Label text="Hora de Salida:" GridPane.rowIndex="7" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtHoraSalida" GridPane.rowIndex="7" GridPane.columnIndex="1"/>
+
+                <Label text="Hora de Llegada:" GridPane.rowIndex="8" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtHoraLlegada" GridPane.rowIndex="8" GridPane.columnIndex="1"/>
+
+                <!-- Botones para guardar o cancelar -->
+                <Button text="Guardar" onAction="#handleConfirmarInsercion" GridPane.rowIndex="9" GridPane.columnIndex="1" GridPane.halignment="RIGHT"/>
+                <Button text="Cancelar" onAction="#handleCancelarInsercion" GridPane.rowIndex="9" GridPane.columnIndex="0"/>
+            </children>
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+        </GridPane>
+    </children>
+</VBox>

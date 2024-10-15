@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="10.0" alignment="CENTER" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.vuelos.main.ListarVuelosController">
+    <children>
+        <Button text="Cerrar" onAction="#handleCerrarVentana"/>
+        <TableView fx:id="vuelosTable" prefWidth="950" prefHeight="300">
+            <columns>
+                <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+                <TableColumn fx:id="colCodigoVuelo" text="Código de Vuelo" prefWidth="100"/>
+                <TableColumn fx:id="colFechaVuelo" text="Fecha de Vuelo" prefWidth="100"/>
+                <TableColumn fx:id="colHoraSalida" text="Hora de Salida" prefWidth="100"/>
+                <TableColumn fx:id="colHoraLlegada" text="Hora de Llegada" prefWidth="100"/>
+                <TableColumn fx:id="colNombreAerolinea" text="Aerolínea" prefWidth="150"/>
+                <TableColumn fx:id="colNombreAeropuertoOrigen" text="Aeropuerto Origen" prefWidth="150"/>
+                <TableColumn fx:id="colNombreAeropuertoDestino" text="Aeropuerto Destino" prefWidth="150"/>
+            </columns>
+        </TableView>
+    </children>
+</VBox>

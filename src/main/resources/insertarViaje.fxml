@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Pos?>
+
+<GridPane xmlns="http://javafx.com/javafx/17"
+          xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="com.vuelos.main.InsertarViajeController"
+          alignment="CENTER"
+          hgap="10"
+          vgap="10"
+          style="-fx-background-color: #f0f8ff;">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Número de Documento del Pasajero -->
+    <Label text="Número de Documento:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+    <TextField fx:id="txtNumeroDocumento" GridPane.rowIndex="0" GridPane.columnIndex="1" promptText="Ingrese documento" />
+    <Button text="Buscar" fx:id="btnBuscarPasajero" onAction="#handleBuscarPasajero" GridPane.rowIndex="0" GridPane.columnIndex="2" />
+
+    <!-- Nombre Completo del Pasajero -->
+    <Label text="Nombre Completo:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+    <TextField fx:id="txtNombreCompleto" GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.columnSpan="2" editable="false" />
+
+    <!-- Seleccionar Vuelo -->
+    <Label text="Seleccionar Vuelo:" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+    <ComboBox fx:id="cbVuelos" GridPane.rowIndex="2" GridPane.columnIndex="1" GridPane.columnSpan="2" />
+
+    <!-- Asiento -->
+    <Label text="Asiento:" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+    <TextField fx:id="txtAsiento" GridPane.rowIndex="3" GridPane.columnIndex="1" GridPane.columnSpan="2" />
+
+    <!-- Fecha de Reserva -->
+    <Label text="Fecha de Reserva:" GridPane.rowIndex="4" GridPane.columnIndex="0" />
+    <DatePicker fx:id="datePickerFechaReserva" GridPane.rowIndex="4" GridPane.columnIndex="1" GridPane.columnSpan="2" />
+
+    <!-- Botones -->
+    <Button text="Insertar" fx:id="btnInsertar" onAction="#handleInsertarViaje" GridPane.rowIndex="5" GridPane.columnIndex="0" />
+    <Button text="Cancelar" fx:id="btnCancelar" onAction="#handleCancelar" GridPane.rowIndex="5" GridPane.columnIndex="1" />
+
+</GridPane>
+
