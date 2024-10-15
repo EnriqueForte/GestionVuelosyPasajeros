@@ -120,6 +120,7 @@ public class InsertarViajeController {
         }
     }
 
+    //Manejar la acción de Insertar Pasajero
     @FXML
     private void handleInsertarViaje() throws SQLException {
         if (validarCampos()) {
@@ -150,6 +151,7 @@ public class InsertarViajeController {
         }
     }
 
+    // Manejar la acción de botón Cancelar
     @FXML
     private void handleCancelar() {
         cerrarVentana();
