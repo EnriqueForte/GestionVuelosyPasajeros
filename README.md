@@ -43,7 +43,7 @@ Eclipse IDE (u otro IDE de tu preferencia) para importar y trabajar con el proye
 ![PantallaInicio](https://github.com/user-attachments/assets/a09c21b1-bc76-4236-8d1f-43946e51b541)
 
 
-![PantallaListadoPasajeros](https://github.com/user-attachments/assets/d0ef5270-fbf8-4169-8841-ddea7f1c1420)
+![PantallaListadoPasajeros](https://github.com/user-attachments/assets/a02352f2-86e2-45c2-b3a3-c963e100f97d)
 
 
 ![PantallaListadoVuelos](https://github.com/user-attachments/assets/367d26c8-76a5-4d21-a140-990f862d2e32)
