@@ -17,7 +17,7 @@ public class MainController {
         System.out.println("Inicializando controlador");
         // Ya no hay necesidad de inicializar columnas o el TableView
     }
-    
+        
     
  // Método para manejar la acción del botón "Insertar Viaje"
     @FXML

@@ -8,6 +8,7 @@ public class Viaje {
     private int pasajeroId;
     private String pasajeroNombre;
     private String pasajeroApellido;
+    private String fechaNacimiento;
     private String PasajeroDocumentoId;
     private String PasajeroTipoDocumento;
     private String PasajeronumeroDocumento;
@@ -23,6 +24,8 @@ public class Viaje {
     private int vueloId;
     private String asiento;    
     private String fechaReserva;
+    private String emailPasajero;
+    private String telefonoPasajero;
     
     // Constructor
     public Viaje() {}
@@ -155,6 +158,30 @@ public class Viaje {
 
 	public void setAeropuertoDestino(String aeropuertoDestino) {
 		AeropuertoDestino = aeropuertoDestino;
+	}
+
+	public String getEmailPasajero() {
+		return emailPasajero;
+	}
+
+	public void setEmailPasajero(String emailPasajero) {
+		this.emailPasajero = emailPasajero;
+	}
+
+	public String getTelefonoPasajero() {
+		return telefonoPasajero;
+	}
+
+	public void setTelefonoPasajero(String telefonoPasajero) {
+		this.telefonoPasajero = telefonoPasajero;
+	}
+
+	public String getFechaNacimiento() {
+		return fechaNacimiento;
+	}
+
+	public void setFechaNacimiento(String fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
 	}
 
 

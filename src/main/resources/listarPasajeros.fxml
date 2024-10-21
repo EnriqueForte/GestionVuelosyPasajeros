@@ -36,5 +36,8 @@
         </columns>
     </TableView>
     
+    <!-- Botón para Buscar Viajes por Documento -->
+    <Button text="Buscar Viajes por Documento" onAction="#handleBuscarViajesPorDocumento" prefWidth="200"/>
+    
 </VBox>
 

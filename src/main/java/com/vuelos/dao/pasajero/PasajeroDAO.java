@@ -112,4 +112,31 @@ public class PasajeroDAO {
 
         return pasajeros;
     }
+    
+    // Método para obtener un pasajero por número de documento
+    public pasajero obtenerPasajeroPorDocumento(String numeroDocumento) {
+        String query = "SELECT * FROM pasajeros WHERE numeroDocumento = ?";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+             
+            stmt.setString(1, numeroDocumento);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                pasajero pasajero = new pasajero();
+                pasajero.setId(rs.getInt("id"));
+                pasajero.setNombre(rs.getString("nombre"));
+                pasajero.setApellido(rs.getString("apellido"));
+                pasajero.setFechaNacimiento(rs.getString("fechaNacimiento"));
+                pasajero.setTipoDocumento(rs.getString("tipoDocumentoId"));
+                pasajero.setNumeroDocumento(rs.getString("numeroDocumento"));
+                pasajero.setEmail(rs.getString("email"));
+                pasajero.setTelefono(rs.getString("telefono"));
+                return pasajero;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            // Manejar excepciones según sea necesario
+        }
+        return null; // Retorna null si no se encuentra el pasajero
+    }
 }

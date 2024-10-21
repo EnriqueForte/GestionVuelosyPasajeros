@@ -1,5 +1,6 @@
 package com.vuelos.main;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,10 +11,14 @@ import com.vuelos.db.DBConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import com.vuelos.model.pasajero;
@@ -88,6 +93,32 @@ public class ListarPasajerosController {
             mostrarError("Error al cargar los pasajeros", e.getMessage());
         }
     }
+    
+    @FXML
+    private void handleBuscarViajesPorDocumento() {
+        try {
+        	 // Cargar el archivo FXML desde el classpath
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/buscarViajesPorDocumento.fxml"));
+            
+            // Verificar que la ubicación no sea null
+            if (loader.getLocation() == null) {
+                throw new IllegalStateException("No se encontró el archivo FXML: /buscarViajesPorDocumento.fxml");
+            }
+
+            Parent root = loader.load();
+
+            // Crear una nueva escena y stage
+            Stage stage = new Stage();
+            stage.setTitle("Buscar Viajes por Documento");
+            stage.initModality(Modality.APPLICATION_MODAL); // Bloquea la ventana principal
+            stage.setScene(new Scene(root));
+            stage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();            
+    }
+        
+  }     
+    
 
 
     @FXML

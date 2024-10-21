@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="20.0" alignment="CENTER" prefWidth="600" prefHeight="400"
+      xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.vuelos.main.BuscarViajesPorDocumentoController">
+    
+    <!-- Padding alrededor del VBox -->
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+    
+    <!-- Título -->
+    <Label text="Buscar Viajes por Documento" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+    
+    <!-- Campo para ingresar el número de documento -->
+    <GridPane hgap="10" vgap="10">
+        <Label text="Número de Documento:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtNumeroDocumento" GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="200"/>
+        <Button text="Buscar" onAction="#handleBuscar" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+    </GridPane>
+    
+    <!-- Tabla para mostrar los resultados -->
+    <TableView fx:id="resultadosTable" prefWidth="550" prefHeight="200">
+        <columns>
+            <!-- Datos del Pasajero -->
+            <TableColumn fx:id="colNombrePasajero" text="Nombre" prefWidth="100"/>
+            <TableColumn fx:id="colApellidoPasajero" text="Apellido" prefWidth="100"/>
+            <TableColumn fx:id="colFechaNacimientoPasajero" text="Fecha de Nacimiento" prefWidth="120"/>
+            <TableColumn fx:id="colTipoDocumentoPasajero" text="Tipo Documento" prefWidth="120"/>
+            <TableColumn fx:id="colNumeroDocumentoPasajero" text="Número Documento" prefWidth="120"/>
+            <TableColumn fx:id="colEmailPasajero" text="Email" prefWidth="150"/>
+            <TableColumn fx:id="colTelefonoPasajero" text="Teléfono" prefWidth="100"/>
+            
+            <!-- Datos del Viaje -->
+            <TableColumn fx:id="colCodigoVuelo" text="Código Vuelo" prefWidth="100"/>
+            <TableColumn fx:id="colAerolinea" text="Aerolínea" prefWidth="100"/>
+            <TableColumn fx:id="colFechaVuelo" text="Fecha Vuelo" prefWidth="120"/>
+            <TableColumn fx:id="colOrigen" text="Origen" prefWidth="100"/>
+            <TableColumn fx:id="colDestino" text="Destino" prefWidth="100"/>            
+            <TableColumn fx:id="colAsiento" text="Asiento" prefWidth="80"/>
+            <TableColumn fx:id="colFechaReserva" text="Fecha Reserva" prefWidth="120"/>
+        </columns>
+    </TableView>
+    
+    <!-- Botón para Cerrar la Ventana -->
+    <HBox alignment="CENTER">
+        <Button text="Cerrar" onAction="#handleCerrar"/>
+    </HBox>
+    
+</VBox>
