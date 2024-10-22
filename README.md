@@ -58,7 +58,8 @@ Reservas de Vuelos
 
 Buscar Pasajero por Documento
 
-![PantallaBuscarViajesporDocumento](https://github.com/user-attachments/assets/73022f18-1420-4a00-a6ea-b3881cc04954)
+![PantallaBuscarViajesporDocumento](https://github.com/user-attachments/assets/bdf6fe88-f304-435d-a781-b33463583b9a)
+
 
 Resultados de la Búsqueda
 
