@@ -62,6 +62,7 @@ Buscar Pasajero por Documento
 
 Resultados de la Búsqueda
 
-![PantallaListadoPasajeros](https://github.com/user-attachments/assets/2838c6e6-7971-4234-ab8b-8f4a3026143c)
+![PantallaBuscarViajesporDocumento](https://github.com/user-attachments/assets/e36df47e-87f8-4d71-b756-4b990150e404)
+
 
 
