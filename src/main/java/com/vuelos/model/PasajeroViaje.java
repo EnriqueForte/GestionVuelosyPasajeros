@@ -18,20 +18,19 @@ public class PasajeroViaje {
     private final SimpleStringProperty asiento;
     private final SimpleStringProperty fechaReserva;
 
-    public PasajeroViaje(String nombrePasajero, String apellidoPasajero, String fechaNacimientoPasajero,String vueloFecha,
+    public PasajeroViaje(String nombrePasajero, String apellidoPasajero, String fechaNacimientoPasajero, String vueloFecha,
                          String pasajeroTipoDocumento, String numeroDocumentoPasajero, String emailPasajero,
                          String telefonoPasajero, String vueloCodigo,
                          String aerolineaNombre, String aeropuertoOrigen, String aeropuertoDestino,
                          String asiento, String fechaReserva) {
         this.nombrePasajero = new SimpleStringProperty(nombrePasajero != null ? nombrePasajero : "N/A");
         this.apellidoPasajero = new SimpleStringProperty(apellidoPasajero != null ? apellidoPasajero : "N/A");
-		this.fechaNacimientoPasajero = new SimpleStringProperty(fechaNacimientoPasajero != null ? fechaNacimientoPasajero : "N/A");
-        
+        this.fechaNacimientoPasajero = new SimpleStringProperty(fechaNacimientoPasajero != null ? fechaNacimientoPasajero : "N/A");
         this.vueloFecha = new SimpleStringProperty(vueloFecha != null ? vueloFecha : "N/A");
         this.pasajeroTipoDocumento = new SimpleStringProperty(pasajeroTipoDocumento != null ? pasajeroTipoDocumento : "N/A");
         this.numeroDocumentoPasajero = new SimpleStringProperty(numeroDocumentoPasajero != null ? numeroDocumentoPasajero : "N/A");
-        this.emailPasajero = new SimpleStringProperty(emailPasajero != null ? emailPasajero : "N/A"); // Inicialización nueva
-        this.telefonoPasajero = new SimpleStringProperty(telefonoPasajero != null ? telefonoPasajero : "N/A"); // Inicialización nueva
+        this.emailPasajero = new SimpleStringProperty(emailPasajero != null ? emailPasajero : "N/A");
+        this.telefonoPasajero = new SimpleStringProperty(telefonoPasajero != null ? telefonoPasajero : "N/A");
         this.vueloCodigo = new SimpleStringProperty(vueloCodigo != null ? vueloCodigo : "N/A");
         this.aerolineaNombre = new SimpleStringProperty(aerolineaNombre != null ? aerolineaNombre : "N/A");
         this.aeropuertoOrigen = new SimpleStringProperty(aeropuertoOrigen != null ? aeropuertoOrigen : "N/A");
@@ -82,7 +81,8 @@ public class PasajeroViaje {
     public SimpleStringProperty fechaReservaProperty() { return fechaReserva; }
 
     public String getFechaNacimiento() { return fechaNacimientoPasajero.get(); }
-	public SimpleStringProperty FechaNacimientoPasajeroProperty() {
-		return fechaNacimientoPasajero;
-	}
+    public SimpleStringProperty fechaNacimientoPasajeroProperty() { 
+        return fechaNacimientoPasajero;
+    }
 }
+

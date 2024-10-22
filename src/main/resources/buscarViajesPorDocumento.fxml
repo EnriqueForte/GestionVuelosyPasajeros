@@ -34,22 +34,22 @@
     <TableView fx:id="resultadosTable" prefWidth="550" prefHeight="200">
         <columns>
             <!-- Datos del Pasajero -->
-            <TableColumn fx:id="colNombrePasajero" text="Nombre" prefWidth="100"/>
-            <TableColumn fx:id="colApellidoPasajero" text="Apellido" prefWidth="100"/>
-            <TableColumn fx:id="colFechaNacimientoPasajero" text="Fecha de Nacimiento" prefWidth="120"/>
-            <TableColumn fx:id="colTipoDocumentoPasajero" text="Tipo Documento" prefWidth="120"/>
-            <TableColumn fx:id="colNumeroDocumentoPasajero" text="Número Documento" prefWidth="120"/>
-            <TableColumn fx:id="colEmailPasajero" text="Email" prefWidth="150"/>
-            <TableColumn fx:id="colTelefonoPasajero" text="Teléfono" prefWidth="100"/>
+	        <TableColumn fx:id="colNombrePasajero" text="Nombre"/>
+	        <TableColumn fx:id="colApellidoPasajero" text="Apellido"/>
+	        <TableColumn fx:id="colFechaNacimientoPasajero" text="Fecha Nacimiento"/>
+	        <TableColumn fx:id="colTipoDocumentoPasajero" text="Tipo Documento"/>
+	        <TableColumn fx:id="colNumeroDocumentoPasajero" text="Número Documento"/>
+	        <TableColumn fx:id="colEmailPasajero" text="Email"/>
+	        <TableColumn fx:id="colTelefonoPasajero" text="Teléfono"/>
             
             <!-- Datos del Viaje -->
-            <TableColumn fx:id="colCodigoVuelo" text="Código Vuelo" prefWidth="100"/>
-            <TableColumn fx:id="colAerolinea" text="Aerolínea" prefWidth="100"/>
-            <TableColumn fx:id="colFechaVuelo" text="Fecha Vuelo" prefWidth="120"/>
-            <TableColumn fx:id="colOrigen" text="Origen" prefWidth="100"/>
-            <TableColumn fx:id="colDestino" text="Destino" prefWidth="100"/>            
-            <TableColumn fx:id="colAsiento" text="Asiento" prefWidth="80"/>
-            <TableColumn fx:id="colFechaReserva" text="Fecha Reserva" prefWidth="120"/>
+			<TableColumn fx:id="colCodigoVuelo" text="Código Vuelo"/>
+	        <TableColumn fx:id="colAerolinea" text="Aerolinea"/>
+	        <TableColumn fx:id="colFechaVuelo" text="Fecha Vuelo"/>
+	        <TableColumn fx:id="colOrigen" text="Origen"/>
+	        <TableColumn fx:id="colDestino" text="Destino"/>
+	        <TableColumn fx:id="colAsiento" text="Asiento"/>
+	        <TableColumn fx:id="colFechaReserva" text="Fecha Reserva"/>
         </columns>
     </TableView>
     

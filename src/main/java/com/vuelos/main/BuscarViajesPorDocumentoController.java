@@ -79,10 +79,10 @@ public class BuscarViajesPorDocumentoController {
         pasajerosViajesList = FXCollections.observableArrayList();
         resultadosTable.setItems(pasajerosViajesList);
 
-        // Configurar las columnas de la tabla
+     // Configurar las columnas de la tabla
         colNombrePasajero.setCellValueFactory(cellData -> cellData.getValue().nombrePasajeroProperty());
         colApellidoPasajero.setCellValueFactory(cellData -> cellData.getValue().apellidoPasajeroProperty());
-        colFechaNacimientoPasajero.setCellValueFactory(cellData -> cellData.getValue().FechaNacimientoPasajeroProperty());
+        colFechaNacimientoPasajero.setCellValueFactory(cellData -> cellData.getValue().fechaNacimientoPasajeroProperty()); // Corregido
         colTipoDocumentoPasajero.setCellValueFactory(cellData -> cellData.getValue().pasajeroTipoDocumentoProperty());
         colNumeroDocumentoPasajero.setCellValueFactory(cellData -> cellData.getValue().numeroDocumentoPasajeroProperty());
         colEmailPasajero.setCellValueFactory(cellData -> cellData.getValue().emailPasajeroProperty());
@@ -94,6 +94,7 @@ public class BuscarViajesPorDocumentoController {
         colDestino.setCellValueFactory(cellData -> cellData.getValue().aeropuertoDestinoProperty());        
         colAsiento.setCellValueFactory(cellData -> cellData.getValue().asientoProperty());
         colFechaReserva.setCellValueFactory(cellData -> cellData.getValue().fechaReservaProperty());
+
     }
 
     @FXML
@@ -103,44 +104,46 @@ public class BuscarViajesPorDocumentoController {
             mostrarAlerta(Alert.AlertType.WARNING, "Campo Vacío", "Por favor, ingresa un número de documento.");
             return;
         }
-      // Obtener el pasajero basado en el número de documento
-	pasajero pasajero = pasajeroDAO.obtenerPasajeroPorDocumento(numeroDocumento);
-	if (pasajero == null) {
-	    mostrarAlerta(Alert.AlertType.INFORMATION, "No Encontrado", "No se encontró un pasajero con el número de documento proporcionado.");
-	    pasajerosViajesList.clear();
-	    return;
-	}
 
-	// Obtener los viajes del pasajero
-	List<Viaje> viajes = viajeDAO.obtenerViajesPorPasajero(pasajero.getId());
-	pasajerosViajesList.clear();
+        // Obtener el pasajero basado en el número de documento
+        pasajero pasajero = pasajeroDAO.obtenerPasajeroPorDocumento(numeroDocumento);
+        if (pasajero == null) {
+            mostrarAlerta(Alert.AlertType.INFORMATION, "No Encontrado", "No se encontró un pasajero con el número de documento proporcionado.");
+            pasajerosViajesList.clear();
+            return;
+        }
 
-	if (viajes.isEmpty()) {
-	    mostrarAlerta(Alert.AlertType.INFORMATION, "Sin Viajes", "El pasajero no tiene viajes registrados.");
-	    return;
-	}
+        // Obtener los viajes del pasajero usando obtenerViajesPorDocumento
+        List<Viaje> viajes = viajeDAO.obtenerViajesPorDocumento(numeroDocumento);
+        pasajerosViajesList.clear();
 
-	// Añadir cada viaje a la lista observable
-	for (Viaje viaje : viajes) {
-	    PasajeroViaje pv = new PasajeroViaje(
-	        viaje.getPasajeroNombre(),
-	        viaje.getPasajeroApellido(),
-	        viaje.getFechaNacimiento(),
-	        viaje.getVueloFecha() != null ? viaje.getVueloFecha().toString() : "N/A",
-	        viaje.getPasajeroTipoDocumento(),
-	        viaje.getPasajeronumeroDocumento(),
-	        viaje.getEmailPasajero(),
-	        viaje.getTelefonoPasajero(),
-	        viaje.getVueloCodigo(),
-	        viaje.getAerolineaNombre(),
-	        viaje.getAeropuertoOrigen(),
-	        viaje.getAeropuertoDestino(),
-	        viaje.getAsiento(),
-	        viaje.getFechaReserva() != null ? viaje.getFechaReserva() : "N/A"
-	    );
-	    pasajerosViajesList.add(pv);
-	}	
+        if (viajes.isEmpty()) {
+            mostrarAlerta(Alert.AlertType.INFORMATION, "Sin Viajes", "El pasajero no tiene viajes registrados.");
+            return;
+        }
+
+        // Añadir cada viaje a la lista observable
+        for (Viaje viaje : viajes) {
+            PasajeroViaje pv = new PasajeroViaje(
+                viaje.getPasajeroNombre(),
+                viaje.getPasajeroApellido(),
+                viaje.getFechaNacimiento(),
+                viaje.getVueloFecha() != null ? viaje.getVueloFecha().toString() : "N/A",
+                viaje.getPasajeroTipoDocumento(),
+                viaje.getPasajeronumeroDocumento(),
+                viaje.getEmailPasajero(),
+                viaje.getTelefonoPasajero(),
+                viaje.getVueloCodigo(),
+                viaje.getAerolineaNombre(),
+                viaje.getAeropuertoOrigen(),
+                viaje.getAeropuertoDestino(),
+                viaje.getAsiento(),
+                viaje.getFechaReserva() != null ? viaje.getFechaReserva() : "N/A"
+            );
+            pasajerosViajesList.add(pv);
+        }   
     }
+  
 
     @FXML
     private void handleCerrar() {
