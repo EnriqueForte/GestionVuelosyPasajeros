@@ -78,7 +78,7 @@ public class InsertarVueloController {
     private void cargarPaises() {
         ObservableList<String> paisesList = FXCollections.observableArrayList();
 
-        String query = "SELECT DISTINCT pais FROM aeropuertos";
+        String query = "SELECT DISTINCT pais FROM aeropuertos ORDER BY pais ASC";
 
         try (Connection connection = DBConnection.getConnection();
              Statement statement = connection.createStatement();

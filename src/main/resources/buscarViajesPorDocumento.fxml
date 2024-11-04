@@ -41,6 +41,7 @@
 	        <TableColumn fx:id="colNumeroDocumentoPasajero" text="Número Documento"/>
 	        <TableColumn fx:id="colEmailPasajero" text="Email"/>
 	        <TableColumn fx:id="colTelefonoPasajero" text="Teléfono"/>
+            <TableColumn fx:id="colNacionalidadPasajero" text="Nacionalidad" prefWidth="100"/>
             
             <!-- Datos del Viaje -->
 			<TableColumn fx:id="colCodigoVuelo" text="Código Vuelo"/>

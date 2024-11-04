@@ -45,6 +45,9 @@ public class BuscarViajesPorDocumentoController {
 
     @FXML
     private TableColumn<PasajeroViaje, String> colTelefonoPasajero;
+    
+    @FXML
+    private TableColumn<PasajeroViaje, String> colNacionalidadPasajero;
 
     @FXML
     private TableColumn<PasajeroViaje, String> colCodigoVuelo;
@@ -87,6 +90,7 @@ public class BuscarViajesPorDocumentoController {
         colNumeroDocumentoPasajero.setCellValueFactory(cellData -> cellData.getValue().numeroDocumentoPasajeroProperty());
         colEmailPasajero.setCellValueFactory(cellData -> cellData.getValue().emailPasajeroProperty());
         colTelefonoPasajero.setCellValueFactory(cellData -> cellData.getValue().telefonoPasajeroProperty());
+        colNacionalidadPasajero.setCellValueFactory(cellData -> cellData.getValue().nacionalidadPasajeroProperty()); // Configurar nacionalidad
         colCodigoVuelo.setCellValueFactory(cellData -> cellData.getValue().vueloCodigoProperty());
         colAerolinea.setCellValueFactory(cellData -> cellData.getValue().aerolineaNombreProperty());
         colFechaVuelo.setCellValueFactory(cellData -> cellData.getValue().vueloFechaProperty());
@@ -133,12 +137,14 @@ public class BuscarViajesPorDocumentoController {
                 viaje.getPasajeronumeroDocumento(),
                 viaje.getEmailPasajero(),
                 viaje.getTelefonoPasajero(),
+                viaje.getNacionalidadPasajero(), // Asumiendo que Viaje incluye nacionalidad
                 viaje.getVueloCodigo(),
                 viaje.getAerolineaNombre(),
                 viaje.getAeropuertoOrigen(),
                 viaje.getAeropuertoDestino(),
-                viaje.getAsiento(),
+                viaje.getAsiento(),                
                 viaje.getFechaReserva() != null ? viaje.getFechaReserva() : "N/A"
+                
             );
             pasajerosViajesList.add(pv);
         }   

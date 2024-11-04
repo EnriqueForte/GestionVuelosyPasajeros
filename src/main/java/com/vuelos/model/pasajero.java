@@ -1,5 +1,7 @@
 package com.vuelos.model;
 
+import com.vuelos.nacionalidad.Nacionalidad;
+
 public class pasajero {
 	private int id;
 	private String nombre;
@@ -10,6 +12,7 @@ public class pasajero {
 	private String email;	
 	private String telefono;
 	private String tipoDocumento;
+	private Nacionalidad nacionalidad;
 	
 	//Constructor
 	public pasajero() {}
@@ -75,6 +78,19 @@ public class pasajero {
 	public void setTipoDocumentoId(int tipoDocumentoId) {
 		this.tipoDocumentoId = tipoDocumentoId;
 	}
+
+	public Nacionalidad getNacionalidad() {
+		return nacionalidad;
+	}
+
+	public void setNacionalidad(Nacionalidad nacionalidad) {
+		this.nacionalidad = nacionalidad;
+	}
+
+	// Método para obtener el nombre de la nacionalidad
+    public String getNacionalidadNombre() {
+        return (nacionalidad != null) ? nacionalidad.getNombre() : "";
+    }
 	
 }
 

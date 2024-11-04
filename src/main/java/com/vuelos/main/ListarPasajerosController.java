@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.vuelos.dao.nacionalidad.NacionalidadDAO;
 import com.vuelos.db.DBConnection;
 
 import javafx.collections.FXCollections;
@@ -22,6 +23,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import com.vuelos.model.pasajero;
+import com.vuelos.nacionalidad.Nacionalidad;
 
 
 public class ListarPasajerosController {
@@ -43,6 +45,11 @@ public class ListarPasajerosController {
     private TableColumn<pasajero, String> colEmail;
     @FXML
     private TableColumn<pasajero, String> colTelefono;
+    
+    @FXML
+    private TableColumn<pasajero, String> colNacionalidad; // Nueva columna para Nacionalidad
+    
+    private NacionalidadDAO nacionalidadDAO;
 
     @FXML
     public void initialize() {
@@ -54,6 +61,7 @@ public class ListarPasajerosController {
         colNumeroDocumento.setCellValueFactory(new PropertyValueFactory<>("numeroDocumento"));
         colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
         colTelefono.setCellValueFactory(new PropertyValueFactory<>("telefono"));
+        colNacionalidad.setCellValueFactory(new PropertyValueFactory<>("nacionalidadNombre")); // Asumiendo que tienes un método getNacionalidadNombre()
         
          
         //cargar los datos
@@ -62,9 +70,10 @@ public class ListarPasajerosController {
     
     public void cargarPasajeros() {
         String query = "SELECT p.nombre, p.apellido, p.fechaNacimiento, td.descripcion AS tipo_documento, "
-                + "p.numeroDocumento, p.email, p.telefono "
+                + "p.numeroDocumento, p.email, p.telefono, n.id AS nacionalidad_id, n.nombre AS nacionalidad_nombre "
                 + "FROM pasajeros p "
-                + "INNER JOIN tipo_documento td ON p.tipoDocumentoId = td.id";
+                + "INNER JOIN tipo_documento td ON p.tipoDocumentoId = td.id "
+                + "INNER JOIN nacionalidades n ON p.nacionalidad_id = n.id";
 
         ObservableList<pasajero> pasajerosList = FXCollections.observableArrayList();
 
@@ -82,6 +91,13 @@ public class ListarPasajerosController {
                 pasajero.setNumeroDocumento(resultSet.getString("numeroDocumento"));
                 pasajero.setEmail(resultSet.getString("email"));
                 pasajero.setTelefono(resultSet.getString("telefono"));
+                
+                
+                // Obtener la nacionalidad como objeto
+                int nacionalidadId = resultSet.getInt("nacionalidad_id");
+                String nacionalidadNombre = resultSet.getString("nacionalidad_nombre");
+                Nacionalidad nacionalidad = new Nacionalidad(nacionalidadId, nacionalidadNombre);
+                pasajero.setNacionalidad(nacionalidad); // Asignar objeto Nacionalidad
 
                 pasajerosList.add(pasajero);
             }

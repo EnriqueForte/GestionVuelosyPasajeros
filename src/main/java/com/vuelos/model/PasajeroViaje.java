@@ -11,6 +11,7 @@ public class PasajeroViaje {
     private final SimpleStringProperty numeroDocumentoPasajero;
     private final SimpleStringProperty emailPasajero; // Nueva propiedad
     private final SimpleStringProperty telefonoPasajero; // Nueva propiedad
+    private final SimpleStringProperty nacionalidadPasajero; // Nueva propiedad
     private final SimpleStringProperty vueloCodigo;
     private final SimpleStringProperty aerolineaNombre;
     private final SimpleStringProperty aeropuertoOrigen;
@@ -20,7 +21,7 @@ public class PasajeroViaje {
 
     public PasajeroViaje(String nombrePasajero, String apellidoPasajero, String fechaNacimientoPasajero, String vueloFecha,
                          String pasajeroTipoDocumento, String numeroDocumentoPasajero, String emailPasajero,
-                         String telefonoPasajero, String vueloCodigo,
+                         String telefonoPasajero, String nacionalidadPasajero, String vueloCodigo,
                          String aerolineaNombre, String aeropuertoOrigen, String aeropuertoDestino,
                          String asiento, String fechaReserva) {
         this.nombrePasajero = new SimpleStringProperty(nombrePasajero != null ? nombrePasajero : "N/A");
@@ -31,6 +32,7 @@ public class PasajeroViaje {
         this.numeroDocumentoPasajero = new SimpleStringProperty(numeroDocumentoPasajero != null ? numeroDocumentoPasajero : "N/A");
         this.emailPasajero = new SimpleStringProperty(emailPasajero != null ? emailPasajero : "N/A");
         this.telefonoPasajero = new SimpleStringProperty(telefonoPasajero != null ? telefonoPasajero : "N/A");
+        this.nacionalidadPasajero = new SimpleStringProperty(nacionalidadPasajero != null ? telefonoPasajero : "N/A");
         this.vueloCodigo = new SimpleStringProperty(vueloCodigo != null ? vueloCodigo : "N/A");
         this.aerolineaNombre = new SimpleStringProperty(aerolineaNombre != null ? aerolineaNombre : "N/A");
         this.aeropuertoOrigen = new SimpleStringProperty(aeropuertoOrigen != null ? aeropuertoOrigen : "N/A");
@@ -61,6 +63,9 @@ public class PasajeroViaje {
 
     public String getTelefonoPasajero() { return telefonoPasajero.get(); }
     public SimpleStringProperty telefonoPasajeroProperty() { return telefonoPasajero; }
+    
+    public String getNacionalidadPasajero() { return nacionalidadPasajero.get(); }
+    public SimpleStringProperty nacionalidadPasajeroProperty() { return nacionalidadPasajero; }
 
     public String getVueloCodigo() { return vueloCodigo.get(); }
     public SimpleStringProperty vueloCodigoProperty() { return vueloCodigo; }
@@ -84,5 +89,6 @@ public class PasajeroViaje {
     public SimpleStringProperty fechaNacimientoPasajeroProperty() { 
         return fechaNacimientoPasajero;
     }
+	
 }
 

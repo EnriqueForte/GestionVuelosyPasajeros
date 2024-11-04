@@ -9,6 +9,7 @@ public class Viaje {
     private String pasajeroTipoDocumento;
     private String emailPasajero;
     private String telefonoPasajero;
+    private String NacionalidadPasajero;
     private String vueloCodigo;
     private String vueloFecha;
     private String horaSalida;
@@ -80,7 +81,14 @@ public class Viaje {
     public int getPasajeroId() {return pasajeroId;}
 	public void setPasajeroId(int pasajeroId) {
 		this.pasajeroId = pasajeroId;
-	}		
+	}
+	public String getNacionalidadPasajero() {
+		return NacionalidadPasajero;
+	}
+	public void setNacionalidadPasajero(String nacionalidadPasajero) {
+		NacionalidadPasajero = nacionalidadPasajero;
+	}
+
 	
 }
 

@@ -1,6 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.vuelos</groupId>
@@ -8,8 +9,8 @@
     <version>0.0.1-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source> <!-- Ajusta según tu versión de Java -->
-        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>17</java.version>
         <javafx.version>17.0.2</javafx.version>
     </properties>
 
@@ -26,7 +27,7 @@
             <version>${javafx.version}</version>
         </dependency>
 
-        <!-- Dependencias de MySQL (ajustar versión si es necesario) -->
+        <!-- Dependencias de MySQL -->
         <dependency>
             <groupId>com.mysql</groupId>
             <artifactId>mysql-connector-j</artifactId>
@@ -36,6 +37,17 @@
 
     <build>
         <plugins>
+            <!-- Plugin de Compilador de Maven -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+
             <!-- Plugin para JavaFX -->
             <plugin>
                 <groupId>org.openjfx</groupId>
@@ -49,9 +61,11 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>com.vuelos.main.mainApp</mainClass> <!-- Ajusta según tu clase principal -->                    
+                    <mainClass>com.vuelos.main.mainApp</mainClass> <!-- Asegúrate de que coincida con tu clase principal -->
                 </configuration>
             </plugin>
         </plugins>
     </build>
 </project>
+
+

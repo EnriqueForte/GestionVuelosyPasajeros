@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-10-2024 a las 16:30:32
+-- Tiempo de generación: 02-11-2024 a las 19:12:33
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -332,6 +332,217 @@ INSERT INTO `aeropuertos` (`id`, `nombre`, `codigo`, `ciudad`, `pais`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `nacionalidades`
+--
+
+CREATE TABLE `nacionalidades` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `nacionalidades`
+--
+
+INSERT INTO `nacionalidades` (`id`, `nombre`) VALUES
+(802, 'Afganistán'),
+(803, 'Albania'),
+(804, 'Alemania'),
+(805, 'Andorra'),
+(806, 'Angola'),
+(807, 'Antigua y Barbuda'),
+(808, 'Arabia Saudita'),
+(809, 'Argelia'),
+(810, 'Argentina'),
+(811, 'Armenia'),
+(812, 'Australia'),
+(813, 'Austria'),
+(814, 'Azerbaiyán'),
+(815, 'Bahamas'),
+(816, 'Bangladés'),
+(817, 'Barbados'),
+(818, 'Baréin'),
+(819, 'Bélgica'),
+(820, 'Belice'),
+(821, 'Benín'),
+(822, 'Bielorrusia'),
+(823, 'Birmania'),
+(824, 'Bolivia'),
+(825, 'Bosnia y Herzegovina'),
+(826, 'Botsuana'),
+(827, 'Brasil'),
+(828, 'Brunéi'),
+(829, 'Bulgaria'),
+(830, 'Burkina Faso'),
+(831, 'Burundi'),
+(832, 'Bután'),
+(833, 'Cabo Verde'),
+(834, 'Camboya'),
+(835, 'Camerún'),
+(836, 'Canadá'),
+(837, 'Catar'),
+(838, 'Chad'),
+(839, 'Chile'),
+(840, 'China'),
+(841, 'Chipre'),
+(842, 'Ciudad del Vaticano'),
+(843, 'Colombia'),
+(844, 'Comoras'),
+(845, 'Corea del Norte'),
+(846, 'Corea del Sur'),
+(847, 'Costa de Marfil'),
+(848, 'Costa Rica'),
+(849, 'Croacia'),
+(850, 'Cuba'),
+(851, 'Dinamarca'),
+(852, 'Dominica'),
+(853, 'Ecuador'),
+(854, 'Egipto'),
+(855, 'El Salvador'),
+(856, 'Emiratos Árabes Unidos'),
+(857, 'Eritrea'),
+(858, 'Eslovaquia'),
+(859, 'Eslovenia'),
+(860, 'España'),
+(861, 'Estados Unidos'),
+(862, 'Estonia'),
+(863, 'Etiopía'),
+(864, 'Filipinas'),
+(865, 'Finlandia'),
+(866, 'Fiyi'),
+(867, 'Francia'),
+(868, 'Gabón'),
+(869, 'Gambia'),
+(870, 'Georgia'),
+(871, 'Ghana'),
+(872, 'Granada'),
+(873, 'Grecia'),
+(874, 'Guatemala'),
+(876, 'Guinea'),
+(877, 'Guinea ecuatorial'),
+(878, 'Guinea-Bisáu'),
+(875, 'Guyana'),
+(879, 'Haití'),
+(880, 'Honduras'),
+(881, 'Hungría'),
+(882, 'India'),
+(883, 'Indonesia'),
+(884, 'Irak'),
+(885, 'Irán'),
+(886, 'Irlanda'),
+(887, 'Islandia'),
+(888, 'Islas Marshall'),
+(889, 'Islas Salomón'),
+(890, 'Israel'),
+(891, 'Italia'),
+(892, 'Jamaica'),
+(893, 'Japón'),
+(894, 'Jordania'),
+(895, 'Kazajistán'),
+(896, 'Kenia'),
+(897, 'Kirguistán'),
+(898, 'Kiribati'),
+(899, 'Kuwait'),
+(900, 'Laos'),
+(901, 'Lesoto'),
+(902, 'Letonia'),
+(903, 'Líbano'),
+(904, 'Liberia'),
+(905, 'Libia'),
+(906, 'Liechtenstein'),
+(907, 'Lituania'),
+(908, 'Luxemburgo'),
+(909, 'Macedonia del Norte'),
+(910, 'Madagascar'),
+(911, 'Malasia'),
+(912, 'Malaui'),
+(913, 'Maldivas'),
+(914, 'Malí'),
+(915, 'Malta'),
+(916, 'Marruecos'),
+(917, 'Mauricio'),
+(918, 'Mauritania'),
+(919, 'México'),
+(920, 'Micronesia'),
+(921, 'Moldavia'),
+(922, 'Mónaco'),
+(923, 'Mongolia'),
+(924, 'Montenegro'),
+(925, 'Mozambique'),
+(926, 'Namibia'),
+(927, 'Nauru'),
+(928, 'Nepal'),
+(929, 'Nicaragua'),
+(930, 'Níger'),
+(931, 'Nigeria'),
+(932, 'Noruega'),
+(933, 'Nueva Zelanda'),
+(934, 'Omán'),
+(935, 'Países Bajos'),
+(936, 'Pakistán'),
+(937, 'Palaos'),
+(938, 'Panamá'),
+(939, 'Papúa Nueva Guinea'),
+(940, 'Paraguay'),
+(941, 'Perú'),
+(942, 'Polonia'),
+(943, 'Portugal'),
+(944, 'Reino Unido'),
+(945, 'República Centroafricana'),
+(946, 'República Checa'),
+(947, 'República del Congo'),
+(948, 'República Democrática del Congo'),
+(949, 'República Dominicana'),
+(950, 'Ruanda'),
+(951, 'Rumanía'),
+(952, 'Rusia'),
+(953, 'Samoa'),
+(954, 'San Cristóbal y Nieves'),
+(955, 'San Marino'),
+(956, 'San Vicente y las Granadinas'),
+(957, 'Santa Lucía'),
+(958, 'Santo Tomé y Príncipe'),
+(959, 'Senegal'),
+(960, 'Serbia'),
+(961, 'Seychelles'),
+(962, 'Sierra Leona'),
+(963, 'Singapur'),
+(964, 'Siria'),
+(965, 'Somalia'),
+(966, 'Sri Lanka'),
+(967, 'Suazilandia'),
+(968, 'Sudáfrica'),
+(969, 'Sudán'),
+(970, 'Sudán del Sur'),
+(971, 'Suecia'),
+(972, 'Suiza'),
+(973, 'Surinam'),
+(974, 'Tailandia'),
+(975, 'Tanzania'),
+(976, 'Tayikistán'),
+(977, 'Timor Oriental'),
+(978, 'Togo'),
+(979, 'Tonga'),
+(980, 'Trinidad y Tobago'),
+(981, 'Túnez'),
+(982, 'Turkmenistán'),
+(983, 'Turquía'),
+(984, 'Tuvalu'),
+(985, 'Ucrania'),
+(986, 'Uganda'),
+(987, 'Uruguay'),
+(988, 'Uzbekistán'),
+(989, 'Vanuatu'),
+(990, 'Venezuela'),
+(991, 'Vietnam'),
+(992, 'Yemen'),
+(993, 'Yibuti'),
+(994, 'Zambia'),
+(995, 'Zimbabue');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `pasajeros`
 --
 
@@ -343,17 +554,19 @@ CREATE TABLE `pasajeros` (
   `tipoDocumentoId` int(11) NOT NULL,
   `numeroDocumento` varchar(20) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `telefono` varchar(20) NOT NULL
+  `telefono` varchar(20) NOT NULL,
+  `nacionalidad_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `pasajeros`
 --
 
-INSERT INTO `pasajeros` (`id`, `nombre`, `apellido`, `fechaNacimiento`, `tipoDocumentoId`, `numeroDocumento`, `email`, `telefono`) VALUES
-(1, 'ENRIQUE ALFONSO', 'FORTE', '1983-10-20', 3, 'Y0161819M', 'elquique3@hotmail.com', '617083052'),
-(2, 'DIEGO ROQUE', 'CARRILLO BONAZZOLA', '2006-06-01', 1, '74000111Q', 'diego@gmail.com', '600555444'),
-(3, 'CECILIA ROBERTA', 'BONAZZOLA LOPEZ', '1980-01-08', 1, '35555888J', 'ccil18@hotmail.com', '609879921');
+INSERT INTO `pasajeros` (`id`, `nombre`, `apellido`, `fechaNacimiento`, `tipoDocumentoId`, `numeroDocumento`, `email`, `telefono`, `nacionalidad_id`) VALUES
+(1, 'ENRIQUE ALFONSO', 'FORTE', '1983-10-20', 3, 'Y0161819M', 'elquique3@hotmail.com', '617083052', 987),
+(2, 'DIEGO ROQUE', 'CARRILLO BONAZZOLA', '2006-06-01', 1, '74000111Q', 'diego@gmail.com', '600555444', 860),
+(3, 'CECILIA ROBERTA', 'BONAZZOLA LOPEZ', '1980-01-08', 1, '35555888J', 'ccil18@hotmail.com', '609879921', 860),
+(4, 'CARINA', 'LOPEZ', '1960-02-11', 2, 'PA555111222', 'carinalopez@gmail.com', '555444666', 810);
 
 -- --------------------------------------------------------
 
@@ -397,7 +610,8 @@ CREATE TABLE `viajes` (
 INSERT INTO `viajes` (`id`, `pasajero_id`, `vuelo_id`, `asiento`, `fecha_reserva`) VALUES
 (1, 1, 2, '12A', '2024-10-02'),
 (2, 1, 4, '14A', '2024-10-01'),
-(3, 1, 3, '19B', '2024-10-04');
+(3, 1, 3, '19B', '2024-10-04'),
+(4, 4, 2, '10A', '2024-10-01');
 
 -- --------------------------------------------------------
 
@@ -423,7 +637,8 @@ CREATE TABLE `vuelos` (
 INSERT INTO `vuelos` (`id`, `aerolinea_id`, `codigo_vuelo`, `aeropuerto_origen_id`, `aeropuerto_destino_id`, `fecha_vuelo`, `hora_salida`, `hora_llegada`) VALUES
 (2, 1, 'AA158', 56, 216, '2024-10-15', '23:59:00', '06:55:00'),
 (3, 1, 'AA154', 216, 56, '2024-10-31', '13:00:00', '06:55:00'),
-(4, 2, 'IB255', 56, 60, '2024-10-19', '23:55:00', '08:10:00');
+(4, 2, 'IB255', 56, 60, '2024-10-19', '23:55:00', '08:10:00'),
+(5, 3, 'V125', 204, 50, '2024-10-19', '15:00:00', '16:30:00');
 
 --
 -- Índices para tablas volcadas
@@ -443,13 +658,21 @@ ALTER TABLE `aeropuertos`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `nacionalidades`
+--
+ALTER TABLE `nacionalidades`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `nombre` (`nombre`);
+
+--
 -- Indices de la tabla `pasajeros`
 --
 ALTER TABLE `pasajeros`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `numeroDocumento` (`numeroDocumento`),
   ADD UNIQUE KEY `email` (`email`),
-  ADD KEY `tipoDocumentoId` (`tipoDocumentoId`);
+  ADD KEY `tipoDocumentoId` (`tipoDocumentoId`),
+  ADD KEY `fk_nacionalidad` (`nacionalidad_id`);
 
 --
 -- Indices de la tabla `tipo_documento`
@@ -492,10 +715,16 @@ ALTER TABLE `aeropuertos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=267;
 
 --
+-- AUTO_INCREMENT de la tabla `nacionalidades`
+--
+ALTER TABLE `nacionalidades`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=996;
+
+--
 -- AUTO_INCREMENT de la tabla `pasajeros`
 --
 ALTER TABLE `pasajeros`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo_documento`
@@ -507,13 +736,13 @@ ALTER TABLE `tipo_documento`
 -- AUTO_INCREMENT de la tabla `viajes`
 --
 ALTER TABLE `viajes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `vuelos`
 --
 ALTER TABLE `vuelos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restricciones para tablas volcadas
@@ -523,6 +752,7 @@ ALTER TABLE `vuelos`
 -- Filtros para la tabla `pasajeros`
 --
 ALTER TABLE `pasajeros`
+  ADD CONSTRAINT `fk_nacionalidad` FOREIGN KEY (`nacionalidad_id`) REFERENCES `nacionalidades` (`id`),
   ADD CONSTRAINT `pasajeros_ibfk_1` FOREIGN KEY (`tipoDocumentoId`) REFERENCES `tipo_documento` (`id`) ON UPDATE CASCADE;
 
 --

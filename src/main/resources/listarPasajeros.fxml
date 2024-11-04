@@ -29,6 +29,7 @@
             <TableColumn fx:id="colNombre" text="Nombre" />
             <TableColumn fx:id="colApellido" text="Apellido" />
             <TableColumn fx:id="colFechaNacimiento" text="Fecha de Nacimiento" />
+            <TableColumn fx:id="colNacionalidad" text="Nacionalidad" prefWidth="150"/>
             <TableColumn fx:id="colTipoDocumento" text="Tipo de Documento" />
             <TableColumn fx:id="colNumeroDocumento" text="Número de Documento" />
             <TableColumn fx:id="colEmail" text="Email" />

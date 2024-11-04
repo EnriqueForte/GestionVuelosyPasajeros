@@ -6,9 +6,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.List;
 
+import com.vuelos.dao.nacionalidad.NacionalidadDAO;
 import com.vuelos.db.DBConnection;
 import com.vuelos.model.pasajero;
+import com.vuelos.nacionalidad.Nacionalidad;
 import com.vuelos.tipoDocumento.tipoDocumento;
 
 import javafx.collections.FXCollections;
@@ -16,6 +20,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.stage.Stage;
 
 public class InsertarPasajeroController {
@@ -27,7 +32,7 @@ public class InsertarPasajeroController {
 	private TextField txtApellido;
 	
 	@FXML
-	private TextField txtFechaNacimiento;
+	private DatePicker datePickerFechaNacimiento;
 	
 	@FXML
 	private ComboBox<tipoDocumento> cbTipoDocumento;
@@ -47,17 +52,36 @@ public class InsertarPasajeroController {
     @FXML
     private Button btnCancelar;
     
+    @FXML
+    private ComboBox<Nacionalidad> comboNacionalidad;
+    
     private MainController mainController;
+    
+    private NacionalidadDAO nacionalidadDAO;
     
     // Método para pasar la referencia del controlador principal
     public void setMainController(MainController mainController) {
         this.mainController = mainController;
     }
     
+    
     //Inicializar el ComboBox Tipo de Documento
     @FXML
     public void initialize() {
+    	cargarNacionalidades();
     	cargarTiposDocumento();    
+    }
+    
+    //Método para cargar las Nacionalidades    
+    private void cargarNacionalidades() {
+        try {
+            List<Nacionalidad> listaNacionalidades = NacionalidadDAO.obtenerTodasLasNacionalidades();
+            ObservableList<Nacionalidad> observableNacionalidades = FXCollections.observableArrayList(listaNacionalidades);
+            comboNacionalidad.setItems(observableNacionalidades);
+        } catch (SQLException e) {            
+            e.printStackTrace();
+            mostrarError("Error al cargar las nacionalidades", e.getMessage());
+        }
     }
     
     //Método para cargar los tipos de documentos desde la BBDD
@@ -90,27 +114,31 @@ public class InsertarPasajeroController {
          if (validarCampos()) {
              String nombre = txtNombre.getText();
              String apellido = txtApellido.getText();
-             String fechaNacimiento = txtFechaNacimiento.getText();
+             LocalDate fechaNacimiento = datePickerFechaNacimiento.getValue();// Obtener fecha del DatePicker
+             String fechaNacimientoStr = (fechaNacimiento != null) ? fechaNacimiento.toString(): "";
              tipoDocumento tipoDocumentoSeleccionado= cbTipoDocumento.getValue();
              String numeroDocumento = txtNumeroDocumento.getText();
              String email = txtEmail.getText();
              String telefono = txtTelefono.getText();
              
              
-             // Verificar que tipoDocumentoSeleccionado no sea null (ya validado)
-             if (tipoDocumentoSeleccionado == null) {
-                 mostrarError("Error", "Tipo de Documento seleccionado no válido.");
+          // Verificar que tipoDocumentoSeleccionado y nacionalidadSeleccionada no sean null (ya validado)
+             if (tipoDocumentoSeleccionado == null || comboNacionalidad.getValue() == null) {
+                 mostrarError("Error", "Tipo de Documento o Nacionalidad seleccionada no válida.");
                  return;
              }
+             
+             Nacionalidad nacionalidadSeleccionada = comboNacionalidad.getValue();
 
              pasajero pasajero = new pasajero();
              pasajero.setNombre(nombre);
              pasajero.setApellido(apellido);
-             pasajero.setFechaNacimiento(fechaNacimiento);
+             pasajero.setFechaNacimiento(fechaNacimientoStr); // Asignar la fecha de Nacimiento como String
              pasajero.setTipoDocumentoId(tipoDocumentoSeleccionado.getId());
              pasajero.setNumeroDocumento(numeroDocumento);
              pasajero.setEmail(email);
              pasajero.setTelefono(telefono);
+             pasajero.setNacionalidad(nacionalidadSeleccionada); // Asignar objeto Nacionalidad
              
              //Insertar en la BBDD
              if (insertarPasajeroEnBD(pasajero)){
@@ -137,7 +165,7 @@ public class InsertarPasajeroController {
     	 if (txtApellido.getText() == null || txtApellido.getText().trim().isEmpty()) {
              errorMensaje += "Apellido es requerido.\n";
          }
-         if (txtFechaNacimiento.getText() == null) {
+         if (datePickerFechaNacimiento.getValue() == null) { //Validar DatePicker
              errorMensaje += "Fecha de Nacimiento es requerida.\n";
          }
          if (cbTipoDocumento.getValue() == null) {
@@ -153,6 +181,11 @@ public class InsertarPasajeroController {
              errorMensaje += "Teléfono es requerido.\n";
          }
          
+         if (comboNacionalidad.getValue() == null) {
+             errorMensaje += "Nacionalidad es requerida.\n";
+         }
+         
+         
          if(errorMensaje.isEmpty()) {
         	 return true;
          }else {
@@ -162,8 +195,8 @@ public class InsertarPasajeroController {
      }
      
      private boolean insertarPasajeroEnBD(com.vuelos.model.pasajero pasajero) {
-    	 String query = "INSERT INTO pasajeros (nombre, apellido, fechaNacimiento, tipoDocumentoId, numeroDocumento, email, telefono)"
-    			 	  + "VALUES (?, ?, ?, ?, ?, ?, ?)";
+    	 String query = "INSERT INTO pasajeros (nombre, apellido, fechaNacimiento, tipoDocumentoId, numeroDocumento, email, telefono, nacionalidad_id)"
+    			 	  + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     	 
     	 try(Connection connection = DBConnection.getConnection();
     		PreparedStatement statement = connection.prepareStatement(query)){
@@ -175,6 +208,7 @@ public class InsertarPasajeroController {
             statement.setString(5, pasajero.getNumeroDocumento());
             statement.setString(6, pasajero.getEmail());
             statement.setString(7, pasajero.getTelefono());
+            statement.setInt(8, pasajero.getNacionalidad().getId());
             
             int rowsInserted = statement.executeUpdate();
             return rowsInserted > 0;
