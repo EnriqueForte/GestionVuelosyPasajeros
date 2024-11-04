@@ -46,7 +46,8 @@ Interfaz Principal
 
 Gestión de Pasajeros
 
-![PantallaInsertarPasajero](https://github.com/user-attachments/assets/990d2f41-188b-4708-902b-84cc6966ef1b)
+![PantallaInsertarPasajero](https://github.com/user-attachments/assets/d037ab98-46eb-4be6-9565-52969a870754)
+
 
 Gestión de Vuelos
 
